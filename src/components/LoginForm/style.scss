@@ -1,0 +1,56 @@
+$color: #4ee2a3;
+.LoginForm {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: left;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s;
+  animation: animationLoginForm 1.25s ease 0.4s backwards;
+  border: {
+    width: 0 0 0 3px;
+    style: solid;
+    color: $color;
+  }
+
+  @media (max-width: 768px) {
+    border: none;
+  }
+
+  &__form {
+    @media (max-width: 576px) {
+      button {
+        margin: 0 auto;
+      }
+    }
+  }
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    display: none;
+    color: black;
+    font: {
+      size: 32px;
+    }
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+}
+@keyframes animationLoginForm {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  25% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

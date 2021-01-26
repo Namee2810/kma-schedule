@@ -1,0 +1,57 @@
+.CalendarMobile {
+  min-height: 350px;
+  background-color: rgba(0, 153, 255, 0.15);
+  padding: 20px;
+  position: relative;
+
+  &__item {
+    text-align: left;
+    margin-bottom: 30px;
+    &__title {
+      display: inline;
+      color: white;
+      border-radius: 15px;
+      padding: 5px 10px;
+      font: {
+        weight: bold;
+        size: 20px;
+      }
+    }
+    &__content {
+      line-height: 0.5;
+      padding: 15px 0 0 8px;
+      color: rgb(75, 75, 75);
+      font: {
+        weight: 400;
+        size: 16px;
+      }
+    }
+  }
+
+  &__nonSubject {
+    margin-top: 120px;
+    font: {
+      weight: bold;
+      size: 20px;
+    }
+    &__cry {
+      position: absolute;
+      font: {
+        weight: bold;
+      }
+      animation: CalendarMobile__nonSubject__cry__animation 1s ease infinite;
+    }
+  }
+}
+
+@keyframes CalendarMobile__nonSubject__cry__animation {
+  0% {
+    transform: rotateZ(20deg);
+  }
+  50% {
+    transform: rotateZ(-20deg);
+  }
+  100% {
+    transform: rotateZ(20deg);
+  }
+}

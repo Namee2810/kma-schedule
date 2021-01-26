@@ -1,0 +1,111 @@
+$color: #4ee2a3;
+a {
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  display: inline-block;
+}
+.button {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  background-color: $color;
+  border: none;
+  transition: all 0.5s;
+  color: white;
+  padding: 15px 45px;
+  font: {
+    size: 20px !important;
+    weight: 500 !important;
+  }
+  &:focus {
+    outline: none;
+  }
+  a {
+    color: white;
+  }
+  &__animation {
+    &:hover {
+      color: white;
+      background-color: #4ee2a3;
+      &::after {
+        width: calc(100% + 40px);
+        transform: translateX(-20px);
+      }
+      // &::before {
+      //   transform: scaleY(1.5);
+      // }
+    }
+    &::after {
+      content: "";
+      height: 100%;
+      width: 100%;
+      border: {
+        width: 0 2px;
+        style: solid;
+        color: $color;
+      }
+      position: absolute;
+      top: 0;
+      left: -2px;
+      transition: all 0.5s;
+    }
+    // &::before {
+    //   content: "";
+    //   height: 100%;
+    //   width: 100%;
+    //   border: {
+    //     width: 2px 0;
+    //     style: solid;
+    //     color: #4ee2a3;
+    //   }
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   transition: all 0.5s;
+    // }
+  }
+}
+.Link {
+  display: block;
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+.Overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 998;
+  background-color: rgba(0, 0, 0, 0.39);
+}
+
+.ant-popover {
+  &-inner {
+    box-shadow: 0 6.7px 5.5px rgba(0, 0, 0, 0.034), 0 12.3px 17.8px rgba(0, 0, 0, 0.045),
+      0 18.4px 40.3px rgba(0, 0, 0, 0.053), 0 30px 75.8px rgba(0, 0, 0, 0.066), 0 76px 100px rgba(0, 0, 0, 0.1);
+
+    &-content {
+      font-size: 16px !important;
+    }
+  }
+  &-title {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font: {
+      size: 18px;
+    }
+    background-color: #53bf1f;
+  }
+}
+
+.ant-picker-calendar-date-content {
+  padding-right: 2px;
+}

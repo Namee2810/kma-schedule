@@ -1,0 +1,109 @@
+.DashBoardNavigation {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  width: 300px;
+  background-color: #303752;
+  transition: all 0.4s;
+  //animation: DashBoardNavigation__animation 0.75s ease backwards;
+  z-index: 999;
+  @media (max-width: 992px) {
+    left: -300px;
+    animation: none;
+  }
+
+  &__header {
+    color: white;
+    font-size: 36px;
+    border-bottom: 1px solid #3a446e;
+    padding-bottom: 10px;
+  }
+
+  &__main {
+    padding: 0 15px;
+  }
+
+  &__item {
+    cursor: pointer;
+    position: relative;
+    margin-top: 5px;
+    padding: 5px 0 5px 10px;
+    color: rgb(235, 235, 235);
+    text-align: left;
+    border-radius: 10px;
+    font: {
+      size: 28px;
+      weight: 500;
+    }
+    transition: all 0.5s;
+    &--active {
+      background: linear-gradient(90deg, rgba(46, 46, 46, 0.5) 40%, rgba(84, 84, 84, 0.05) 100%) !important;
+      transform: translateX(-10px);
+    }
+
+    &__title {
+      font-size: 18px;
+      margin-left: 25px;
+      position: absolute;
+      top: 13px;
+    }
+    &:hover {
+      background: linear-gradient(90deg, rgba(119, 119, 119, 0.1) 31%, rgba(215, 215, 215, 0.1) 100%);
+    }
+  }
+  &__closeMenu {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    right: 10px;
+    top: 10px;
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+  &__student {
+    display: none;
+
+    @media (max-width: 576px) {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    &__avatar {
+      border-radius: 50%;
+      width: 52px;
+    }
+    &__info {
+      margin-left: 15px;
+      span {
+        display: block;
+        text-align: left;
+        font: {
+          size: 18px;
+          weight: bold;
+        }
+
+        &:last-child {
+          font: {
+            size: 14px;
+            weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes DashBoardNavigation__animation {
+  0% {
+    opacity: 0;
+    left: -100px;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}

@@ -1,0 +1,106 @@
+.DashBoardHeader {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  position: fixed;
+  right: 0;
+  height: 65px;
+  padding: 8px 25px;
+  width: calc(100% - 300px);
+  box-shadow: 0px 0px 5px 0px rgb(201, 201, 201);
+  background-color: rgb(247, 247, 247);
+  z-index: 997;
+  //animation: DashBoardHeader__animation 0.5s ease 0.5s backwards;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: row;
+  }
+
+  &__student {
+    border-radius: 10px 25px 25px 10px;
+    display: flex;
+    color: #6d6d6d;
+    padding: 0 0 0 5px;
+    transition: all 0.25s;
+    cursor: pointer;
+
+    @media (max-width: 576px) {
+      display: none;
+    }
+
+    &--active {
+      background: linear-gradient(90deg, rgba(163, 163, 163, 0.25) 0%, rgba(33, 150, 243, 0.05) 100%);
+      color: #6d6d6d;
+    }
+    &:hover {
+      color: #6d6d6d;
+      background-color: #efefef;
+    }
+    &__avatar {
+      border-radius: 50%;
+      width: 48px;
+      margin-left: 15px;
+    }
+    &__info {
+      span {
+        display: block;
+        text-align: right;
+        font: {
+          size: 18px;
+          weight: bold;
+        }
+
+        &:last-child {
+          font: {
+            size: 14px;
+            weight: 500;
+          }
+        }
+      }
+    }
+  }
+  &__banner {
+    display: block;
+    span {
+      color: #6d6d6d;
+      &:first-child {
+        color: red;
+        font: {
+          size: 30px;
+          weight: bold;
+        }
+      }
+      &:last-child {
+        font: {
+          size: 26px;
+          weight: 400;
+        }
+      }
+    }
+  }
+  &__openMenu {
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+}
+
+@keyframes DashBoardHeader__animation {
+  0% {
+    opacity: 0;
+    top: -25px;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}

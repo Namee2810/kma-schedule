@@ -1,0 +1,25 @@
+.DashBoardContent {
+  position: absolute;
+  width: calc(100% - 300px);
+  height: calc(100% - 65px);
+  right: 0;
+  bottom: 0;
+  //animation: DashBoardContent__animation 1s ease backwards;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}
+
+@keyframes DashBoardContent__animation {
+  0% {
+    opacity: 0;
+    right: -500px;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    right: 0;
+  }
+}
