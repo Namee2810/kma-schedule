@@ -23,6 +23,10 @@ function DashBoardContent_Schedule(props) {
     const updateSize = () => {
       if (window.innerWidth > 768) setMobile(false);
       else setMobile(true);
+      if (window.innerWidth > 992) {
+        document.getElementById("DashBoardNavigation").style.left = "0";
+        document.getElementById("Overlay").style.display = "none";
+      }
     }
     window.addEventListener('resize', updateSize);
     updateSize();
