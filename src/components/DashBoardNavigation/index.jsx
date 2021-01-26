@@ -1,4 +1,4 @@
-import { CloseOutlined, InfoCircleOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
+import { CloseOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
 import Image from "cloudinary-react/lib/components/Image";
 import React, { useEffect } from 'react';
 import { useSelector } from "react-redux";
@@ -50,9 +50,9 @@ function DashBoardNavigation() {
         {/* <ICalendarLink className="Link DashBoardNavigation__item">
           <CopyOutlined /><span className="DashBoardNavigation__item__title">Tải xuống .ics</span>
         </ICalendarLink> */}
-        <NavLink to="/dashboard/info" className="Link DashBoardNavigation__item" activeClassName="DashBoardNavigation__item--active">
+        {/* <NavLink to="/dashboard/info" className="Link DashBoardNavigation__item" activeClassName="DashBoardNavigation__item--active">
           <InfoCircleOutlined /><span className="DashBoardNavigation__item__title">Thông tin</span>
-        </NavLink>
+        </NavLink> */}
         <div className="DashBoardNavigation__item" onClick={handleClickLogOut}
           style={{ color: "red" }}
         >

@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import "./style.scss";
 
 const DashBoardContentSchedule = React.lazy(() => import("./DashBoardContentSchedule"))
-const DashBoardContentInfo = React.lazy(() => import("./DashBoardContentInfo"))
+//const DashBoardContentInfo = React.lazy(() => import("./DashBoardContentInfo"))
 
 function DashBoardContent(props) {
   return (
@@ -12,9 +12,9 @@ function DashBoardContent(props) {
         <Route exact path="/dashboard">
           <DashBoardContentSchedule />
         </Route>
-        <Route exact path="/dashboard/info">
+        {/* <Route exact path="/dashboard/info">
           <DashBoardContentInfo />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );
