@@ -44,7 +44,7 @@ function DashBoardNavigation() {
           .then(choiceResult => {
             if (choiceResult.outcome === "accepted") {
               notification.success({
-                message: "App đã được cài đặt thành công 🎉",
+                message: "App đang được tải xuống 🎉",
               });
               install.style.display = "none";
             }
