@@ -1,4 +1,5 @@
 import { CloseOutlined, PlusCircleOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
+import { notification } from "antd";
 import Image from "cloudinary-react/lib/components/Image";
 import React, { useEffect } from 'react';
 import { useSelector } from "react-redux";
@@ -38,14 +39,15 @@ function DashBoardNavigation() {
       let install = document.getElementById("install-app");
       install.style.display = "block";
       install.addEventListener("click", (e) => {
-        install.style.display = "none";
         deferredPrompt.prompt();
         deferredPrompt.userChoice
           .then(choiceResult => {
             if (choiceResult.outcome === "accepted") {
-              console.log("yes");
+              notification.success({
+                message: "App đã được cài đặt thành công 🎉",
+              });
+              install.style.display = "none";
             }
-            else console.log("no");
           })
         deferredPrompt = null;
       });
