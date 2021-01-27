@@ -1,4 +1,4 @@
-import { CloseOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
+import { CloseOutlined, PlusCircleOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
 import Image from "cloudinary-react/lib/components/Image";
 import React, { useEffect } from 'react';
 import { useSelector } from "react-redux";
@@ -30,7 +30,29 @@ function DashBoardNavigation() {
         }
       }
     }
-  }, [])
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      let deferredPrompt = e;
+
+      let install = document.getElementById("install-app");
+      install.style.display = "block";
+      install.addEventListener("click", (e) => {
+        install.style.display = "none";
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice
+          .then(choiceResult => {
+            if (choiceResult.outcome === "accepted") {
+              console.log("yes");
+            }
+            else console.log("no");
+          })
+        deferredPrompt = null;
+      });
+
+    })
+  }, []);
+
   return (
     <div className="DashBoardNavigation" id="DashBoardNavigation">
       <div className="DashBoardNavigation__header">
@@ -53,6 +75,9 @@ function DashBoardNavigation() {
         {/* <NavLink to="/dashboard/info" className="Link DashBoardNavigation__item" activeClassName="DashBoardNavigation__item--active">
           <InfoCircleOutlined /><span className="DashBoardNavigation__item__title">Thông tin</span>
         </NavLink> */}
+        <div id="install-app" className="DashBoardNavigation__item">
+          <PlusCircleOutlined /><span className="DashBoardNavigation__item__title">Cài đặt app</span>
+        </div>
         <div className="DashBoardNavigation__item" onClick={handleClickLogOut}
           style={{ color: "red" }}
         >
