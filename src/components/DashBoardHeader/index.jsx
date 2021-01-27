@@ -1,11 +1,10 @@
 import { MenuOutlined } from "@ant-design/icons";
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import "./style.scss";
 
-function DashBoardHeader() {
-
+function DashBoardHeader(props) {
   const studentProfile = useSelector(state => state.studentProfile);
   const avatarUrl = `https://ui-avatars.com/api/?background=random&name=${studentProfile.displayName}`;
 

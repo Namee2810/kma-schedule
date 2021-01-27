@@ -1,6 +1,4 @@
-import { DownloadOutlined } from "@ant-design/icons";
-import { Badge, Calendar, Popover, Tooltip } from 'antd';
-import createIcsString from "global/functions/createIcsString";
+import { Badge, Calendar, Popover } from 'antd';
 import formatLessons from 'global/functions/formatLesson';
 import moment from "moment";
 import React, { useEffect, useState } from 'react';
@@ -15,9 +13,8 @@ function getRandomColor() {
 }
 
 function DashBoardContent_Schedule(props) {
-  const [mobile, setMobile] = useState(false);
   const schedule = useSelector(state => state.schedule);
-  const studentProfile = useSelector(state => state.studentProfile);
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
     const updateSize = () => {
@@ -68,13 +65,13 @@ function DashBoardContent_Schedule(props) {
   const getSubjects = (value) => {
     let listSubjects = [];
     value = value.format("DD-MM-YYYY").split("-");
-
-    schedule.forEach(item => {
-      let day = item.day.split("/");
-      if (Number(value[0]) === Number(day[0])
-        && Number(value[1]) === Number(day[1])
-        && Number(value[2]) === Number(day[2])) listSubjects.push(item);
-    });
+    if (schedule.length > 0)
+      schedule.forEach(item => {
+        let day = item.day.split("/");
+        if (Number(value[0]) === Number(day[0])
+          && Number(value[1]) === Number(day[1])
+          && Number(value[2]) === Number(day[2])) listSubjects.push(item);
+      });
 
     return listSubjects;
   }
@@ -92,36 +89,20 @@ function DashBoardContent_Schedule(props) {
     setSubjects(listSubjects);
   }
 
-  const downloadIcsFile = () => {
-    let ics = createIcsString(schedule);
-    let url = "data:text/calendar;charset=utf-8," + ics;
-
-    var downloadLink = document.createElement("a");
-    downloadLink.href = url;
-    downloadLink.download = `${studentProfile.studentCode}.ics`;
-
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-  }
-
   return (
-    <div className="DashBoardContent_Schedule">
-      <Calendar
-        fullscreen={!mobile}
-        dateCellRender={dateCellRender}
-        className="DashBoardContent_Schedule__Calender"
-        validRange={validRange()}
-        onSelect={onSelect}
-      />
-      {mobile && <CalendarMobile subjects={subjects} />}
-      <Tooltip title="Tệp .ics có thể thêm vào các ứng dụng lịch trên Windows, Android, iOS và macOS (Microsoft Outlook, Google Calendar, Apple Calendar, ...)" placement="bottom">
-        <button className="DashBoardContent_Schedule__ics button" style={{ backgroundColor: "#2ACC37", marginTop: "30px" }} onClick={downloadIcsFile}>
-          <DownloadOutlined /> Tải xuống .ics
-        </button>
-      </Tooltip>
+    schedule.length > 0 ?
+      <div className="DashBoardContent_Schedule">
+        <Calendar
+          fullscreen={!mobile}
+          dateCellRender={dateCellRender}
+          className="DashBoardContent_Schedule__Calender"
+          validRange={validRange()}
+          onSelect={onSelect}
+        />
+        {mobile && <CalendarMobile subjects={subjects} />}
 
-    </div >
+      </div >
+      : <h2>Bạn không có lịch học</h2>
   );
 }
 

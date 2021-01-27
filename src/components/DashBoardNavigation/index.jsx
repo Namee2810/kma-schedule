@@ -1,15 +1,16 @@
-import { CloseOutlined, PlusCircleOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
+import { CloseOutlined, DownloadOutlined, PlusCircleOutlined, PoweroffOutlined, ScheduleOutlined } from "@ant-design/icons";
 import { notification } from "antd";
 import Image from "cloudinary-react/lib/components/Image";
+import createIcsString from "global/functions/createIcsString";
 import React, { useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import "./style.scss";
 
-function DashBoardNavigation() {
+function DashBoardNavigation(props) {
   let history = useHistory();
+  const { studentProfile, schedule } = useSelector(state => state);
 
-  const studentProfile = useSelector(state => state.studentProfile);
   const avatarUrl = `https://ui-avatars.com/api/?background=random&name=${studentProfile.displayName}`;
 
   const handleClickCloseMenu = () => {
@@ -32,11 +33,12 @@ function DashBoardNavigation() {
       }
     }
 
+    let install = document.getElementById("install-app");
+    install.style.display = "none";
     window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       let deferredPrompt = e;
 
-      let install = document.getElementById("install-app");
       install.style.display = "block";
       install.addEventListener("click", (e) => {
         deferredPrompt.prompt();
@@ -55,6 +57,19 @@ function DashBoardNavigation() {
     })
   }, []);
 
+  const downloadIcsFile = () => {
+    let ics = createIcsString(schedule);
+    let url = "data:text/calendar;charset=utf-8," + ics;
+
+    var downloadLink = document.createElement("a");
+    downloadLink.href = url;
+    downloadLink.download = `${studentProfile.studentCode}.ics`;
+
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  }
+
   return (
     <div className="DashBoardNavigation" id="DashBoardNavigation">
       <div className="DashBoardNavigation__header">
@@ -71,13 +86,16 @@ function DashBoardNavigation() {
         <NavLink exact to="/dashboard" className="Link DashBoardNavigation__item" activeClassName="DashBoardNavigation__item--active">
           <ScheduleOutlined /><span className="DashBoardNavigation__item__title">Thời khóa biểu</span>
         </NavLink>
+        <div className="DashBoardNavigation__item" onClick={downloadIcsFile}>
+          <DownloadOutlined /><span className="DashBoardNavigation__item__title">Xuất file .ics</span>
+        </div>
         {/* <ICalendarLink className="Link DashBoardNavigation__item">
           <CopyOutlined /><span className="DashBoardNavigation__item__title">Tải xuống .ics</span>
         </ICalendarLink> */}
         {/* <NavLink to="/dashboard/info" className="Link DashBoardNavigation__item" activeClassName="DashBoardNavigation__item--active">
           <InfoCircleOutlined /><span className="DashBoardNavigation__item__title">Thông tin</span>
         </NavLink> */}
-        <div id="install-app" className="DashBoardNavigation__item" style={{ display: "none" }}>
+        <div id="install-app" className="DashBoardNavigation__item">
           <PlusCircleOutlined /><span className="DashBoardNavigation__item__title">Cài đặt app</span>
         </div>
         <div className="DashBoardNavigation__item" onClick={handleClickLogOut}
