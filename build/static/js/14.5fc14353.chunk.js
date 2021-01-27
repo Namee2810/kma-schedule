@@ -1,2 +1,0 @@
-(this["webpackJsonpkma-schedule"]=this["webpackJsonpkma-schedule"]||[]).push([[14],{536:function(t,n,e){},605:function(t,n,e){"use strict";e.r(n);var s=e(4),c=(e(0),e(36));e(536);n.default=function(t){return Object(s.jsxs)("div",{className:"PageNotFound",children:[Object(s.jsxs)("p",{children:["Opps !!!",Object(s.jsx)("br",{}),"Trang kh\xf4ng t\u1ed3n t\u1ea1i \ud83d\ude22"]}),Object(s.jsx)(c.b,{to:"/",children:Object(s.jsx)("button",{className:"button button__animation",children:"Trang ch\u1ee7"})})]})}}}]);
-//# sourceMappingURL=14.5fc14353.chunk.js.map

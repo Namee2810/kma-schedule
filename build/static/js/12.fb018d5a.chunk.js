@@ -1,2 +1,0 @@
-(this["webpackJsonpkma-schedule"]=this["webpackJsonpkma-schedule"]||[]).push([[12],{591:function(s,e,n){},607:function(s,e,n){"use strict";n.r(e);var t=n(4);n(0),n(591);e.default=function(s){return Object(t.jsx)("div",{className:"DashBoardContent_Info"})}}}]);
-//# sourceMappingURL=12.fb018d5a.chunk.js.map

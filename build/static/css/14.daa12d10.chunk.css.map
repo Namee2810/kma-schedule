@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/pages/PageNotFound/style.scss"],"names":[],"mappings":"AAAA,cAEI,aAAA","file":"14.daa12d10.chunk.css","sourcesContent":[".PageNotFound {\r\n  font: {\r\n    size: 3em;\r\n  }\r\n}\r\n"]}
