@@ -77,7 +77,7 @@ function DashBoardNavigation() {
         {/* <NavLink to="/dashboard/info" className="Link DashBoardNavigation__item" activeClassName="DashBoardNavigation__item--active">
           <InfoCircleOutlined /><span className="DashBoardNavigation__item__title">Thông tin</span>
         </NavLink> */}
-        <div id="install-app" className="DashBoardNavigation__item">
+        <div id="install-app" className="DashBoardNavigation__item" style={{ display: "none" }}>
           <PlusCircleOutlined /><span className="DashBoardNavigation__item__title">Cài đặt app</span>
         </div>
         <div className="DashBoardNavigation__item" onClick={handleClickLogOut}
