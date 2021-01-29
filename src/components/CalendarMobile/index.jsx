@@ -52,7 +52,6 @@ function CalendarMobile(props) {
     <div className="CalendarMobile__">
       <DatePickerCalendar
         date={date}
-        onDateChange={setDate}
         locale={vi}
         modifiers={modifiers}
         modifiersClassNames={modifiersClassNames}
