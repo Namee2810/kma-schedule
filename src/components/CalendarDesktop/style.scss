@@ -1,0 +1,20 @@
+.CalendarDesktop {
+  @media (max-width: 768px) {
+    display: none;
+  }
+  &__events {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    li {
+      color: white !important;
+      padding: 0 5px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      border-radius: 5px;
+    }
+  }
+}

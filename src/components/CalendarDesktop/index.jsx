@@ -2,6 +2,7 @@ import { Calendar, Popover } from 'antd';
 import formatLessons from 'global/functions/formatLesson';
 import moment from "moment";
 import React from 'react';
+import "./style.scss";
 
 function getRandomColor() {
   let color = Math.floor(Math.random() * 16777215);
@@ -35,9 +36,9 @@ function CalendarDesktop(props) {
     if (listSubjects.length > 0)
       return (
         <div>
-          <ul className="DashBoardContent_Schedule__Calender__events">
+          <ul className="CalendarDesktop__events">
             {listSubjects.map(item => (
-              <Popover placement="right" trigger="hover" style={{ backgroundColor: getRandomColor() }}
+              <Popover placement="right" trigger="hover"
                 title={<b>{item.subjectName} ({item.subjectCode})</b>}
                 content={
                   <div>
@@ -61,7 +62,6 @@ function CalendarDesktop(props) {
     <div className="CalendarDesktop">
       <Calendar
         dateCellRender={dateCellRender}
-        className="DashBoardContent_Schedule__Calender"
         validRange={validRange()}
       />
     </div>

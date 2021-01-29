@@ -49,7 +49,7 @@ function CalendarMobile(props) {
   }
 
   return (
-    <div className="CalendarMobile__">
+    <div className="CalendarMobile">
       <DatePickerCalendar
         date={date}
         locale={vi}

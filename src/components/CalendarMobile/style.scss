@@ -1,4 +1,8 @@
 .CalendarMobile {
+  @media (min-width: 769px) {
+    display: none;
+  }
+
   &__calendar {
     box-shadow: 0 4.5px 3.6px rgba(0, 0, 0, 0.024), 0 12.5px 10px rgba(0, 0, 0, 0.035),
       0 30.1px 24.1px rgba(0, 0, 0, 0.046), 0 100px 80px rgba(0, 0, 0, 0.07);
@@ -7,7 +11,7 @@
   &__detail {
     margin-top: 25px;
     min-height: 350px;
-    background-color: #e8fff0;
+    background-color: #dfffea;
     padding: 20px;
     position: relative;
   }
@@ -37,7 +41,7 @@
   }
 
   &__nonSubject {
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.7);
     margin-top: 120px;
     font: {
       weight: bold;
