@@ -85,27 +85,3 @@ a {
   z-index: 998;
   background-color: rgba(0, 0, 0, 0.39);
 }
-
-.ant-popover {
-  &-inner {
-    box-shadow: 0 6.7px 5.5px rgba(0, 0, 0, 0.034), 0 12.3px 17.8px rgba(0, 0, 0, 0.045),
-      0 18.4px 40.3px rgba(0, 0, 0, 0.053), 0 30px 75.8px rgba(0, 0, 0, 0.066), 0 76px 100px rgba(0, 0, 0, 0.1);
-
-    &-content {
-      font-size: 16px !important;
-    }
-  }
-  &-title {
-    padding: 15px;
-    text-align: center;
-    color: white;
-    font: {
-      size: 18px;
-    }
-    background-color: #1ed760;
-  }
-}
-
-.ant-picker-calendar-date-content {
-  padding-right: 2px;
-}

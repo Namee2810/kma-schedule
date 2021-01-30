@@ -17,4 +17,122 @@
       border-radius: 5px;
     }
   }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__changeMonth {
+    &__item {
+      font-size: 22px;
+      cursor: pointer;
+      display: inline;
+      padding: 7px 12px;
+      border-radius: 50%;
+      margin-left: 5px;
+      transition: all 0.25s;
+      &:hover {
+        background-color: #dfffe9;
+      }
+    }
+  }
+  &__today {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #1ed760;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 20px;
+    font: {
+      size: 18px;
+      weight: 700;
+    }
+  }
+}
+.ant-popover {
+  &-inner {
+    box-shadow: 0 6.7px 5.5px rgba(0, 0, 0, 0.034), 0 12.3px 17.8px rgba(0, 0, 0, 0.045),
+      0 18.4px 40.3px rgba(0, 0, 0, 0.053), 0 30px 75.8px rgba(0, 0, 0, 0.066), 0 76px 100px rgba(0, 0, 0, 0.1);
+
+    &-content {
+      font-size: 16px !important;
+    }
+  }
+  &-title {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font: {
+      size: 18px;
+    }
+    background-color: #1ed760;
+  }
+}
+
+.ant {
+  &-picker {
+    &-calendar-date {
+      &-content {
+        padding-right: 2px;
+      }
+      &-value {
+        margin-bottom: 15px;
+        text-align: center;
+        font: {
+          weight: bold;
+          size: 20px;
+        }
+      }
+      &-today {
+        border-color: #1ed760 !important;
+        border-top-width: 3px !important;
+      }
+    }
+    &-cell-selected {
+      background: none !important;
+    }
+  }
+}
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date-today {
+  background: #eafff1 !important;
+}
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected .ant-picker-calendar-date,
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date,
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected .ant-picker-calendar-date-today,
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date-today {
+  background: #eafff1 !important;
+}
+.ant-picker-calendar-full
+  .ant-picker-panel
+  .ant-picker-cell-selected
+  .ant-picker-calendar-date
+  .ant-picker-calendar-date-value,
+.ant-picker-calendar-full
+  .ant-picker-panel
+  .ant-picker-cell-selected:hover
+  .ant-picker-calendar-date
+  .ant-picker-calendar-date-value,
+.ant-picker-calendar-full
+  .ant-picker-panel
+  .ant-picker-cell-selected
+  .ant-picker-calendar-date-today
+  .ant-picker-calendar-date-value,
+.ant-picker-calendar-full
+  .ant-picker-panel
+  .ant-picker-cell-selected:hover
+  .ant-picker-calendar-date-today
+  .ant-picker-calendar-date-value {
+  color: #1ed760 !important;
+}
+th {
+  text-align: center;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+  color: white;
+}
+.ant-radio-button-wrapper-checked {
+  background: #1ed760 !important;
+  border-color: #1ed760 !important;
+  &:hover {
+    color: white !important;
+  }
 }

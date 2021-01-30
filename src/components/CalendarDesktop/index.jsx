@@ -1,16 +1,24 @@
-import { Calendar, Popover } from 'antd';
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Calendar, Popover, Radio, Typography } from 'antd';
 import formatLessons from 'global/functions/formatLesson';
 import moment from "moment";
-import React from 'react';
+import React, { useState } from 'react';
 import "./style.scss";
 
-function getRandomColor() {
-  let color = Math.floor(Math.random() * 16777215);
-  return `#${color.toString(16)}`;
+function getRandomColor(day) {
+  day = Number(day.split("/").join(""));
+  let color = day.toString(16);
+  if (color.length > 6) {
+    color = color.slice(0, 6);
+  }
+  if (color.length < 6) color += "f";
+
+  return `#${color}`;
 }
 
 function CalendarDesktop(props) {
   const { schedule } = props;
+  const [mode, setMode] = useState("month")
 
   const getSubjects = (value) => {
     let listSubjects = [];
@@ -50,19 +58,73 @@ function CalendarDesktop(props) {
                 }
                 key={item.subjectCode + item.day}
               >
-                <li style={{ backgroundColor: getRandomColor() }}>{item.subjectName}</li>
+                <li style={{ backgroundColor: getRandomColor(item.day) }}>{item.subjectName}</li>
               </Popover>
             ))}
           </ul>
         </div >
       );
   }
+  const onPanelChange = (value, mode) => {
+    setMode(mode)
+  }
+  const onSelect = (value) => {
+    if (mode === "year") setMode("month")
+    if (mode === "month") {
+
+    }
+  }
+  const headerRender = ({ value, type, onChange, onTypeChange }) => {
+    const month = value.month();
+    const year = value.year();
+
+    const onClickPreviousMonth = () => {
+      const newValue = value.clone();
+      newValue.month(month - 1);
+      onChange(newValue);
+    }
+    const onClickNextMonth = () => {
+      const newValue = value.clone();
+      newValue.month(month + 1);
+      onChange(newValue);
+    }
+    const onClickToday = () => {
+      onChange(moment());
+    }
+
+    return (
+      <div style={{ marginBottom: "10px" }}>
+        <Typography.Title level={3}>{`Tháng ${month + 1}, ${year}`}</Typography.Title>
+        <div className="CalendarDesktop__header">
+          <div className="CalendarDesktop__changeMonth">
+            <div onClick={onClickPreviousMonth} className="CalendarDesktop__changeMonth__item">
+              <LeftOutlined />
+            </div>
+            <div onClick={onClickNextMonth} className="CalendarDesktop__changeMonth__item">
+              <RightOutlined />
+            </div>
+            <div className="CalendarDesktop__today" onClick={onClickToday}><span>Về hôm nay</span></div>
+          </div>
+          <div className="CalendarDesktop__changeMode">
+            <Radio.Group onChange={e => onTypeChange(e.target.value)} value={type}>
+              <Radio.Button value="month">Tháng</Radio.Button>
+              <Radio.Button value="year">Năm</Radio.Button>
+            </Radio.Group>
+          </div>
+        </div >
+      </div >
+    )
+  };
 
   return (
     <div className="CalendarDesktop">
       <Calendar
+        mode={mode}
         dateCellRender={dateCellRender}
         validRange={validRange()}
+        onPanelChange={onPanelChange}
+        onSelect={onSelect}
+        headerRender={headerRender}
       />
     </div>
   );
