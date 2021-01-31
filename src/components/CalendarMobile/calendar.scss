@@ -73,6 +73,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  min-height: 100px !important;
 }
 .nice-dates-grid_container {
   -webkit-backface-visibility: hidden;

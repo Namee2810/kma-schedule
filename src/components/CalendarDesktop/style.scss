@@ -1,4 +1,7 @@
 .CalendarDesktop {
+  tr {
+    height: 10px !important;
+  }
   @media (max-width: 768px) {
     display: none;
   }
