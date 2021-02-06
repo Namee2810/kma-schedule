@@ -1,8 +1,13 @@
+import authenticateToken from 'global/functions/authenticateToken';
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 
 function PrivateRoute({ component: Component, ...rest }) {
-  let token = localStorage.getItem("token");
+  const token = authenticateToken(localStorage.getItem("token"));
+
+  useEffect(() => {
+    if (!token) localStorage.clear();
+  })
 
   return (
     <Route

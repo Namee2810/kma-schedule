@@ -8,7 +8,6 @@ const LoginForm = React.lazy(() => import("components/LoginForm"));
 
 function LoginPage(props) {
   const handleClickLogin = () => {
-    console.log(1);
     document.getElementById("LoginForm").style.transform = "translateY(-100vh)";
   }
   return (
