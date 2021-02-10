@@ -2,7 +2,7 @@ import { vi } from 'date-fns/locale';
 import formatLessons from "global/functions/formatLesson";
 import moment from "moment";
 import React, { useState } from 'react';
-import { DatePickerCalendar } from 'react-nice-dates';
+import { DatePickerCalendar } from "react-nice-dates";
 import "./calendar.scss";
 import "./style.scss";
 
