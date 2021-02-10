@@ -1,3 +1,4 @@
+import $ from "jquery";
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import "./style.scss";
@@ -11,8 +12,8 @@ function DashBoardContent_Schedule(props) {
   useEffect(() => {
     const updateSize = () => {
       if (window.innerWidth > 992) {
-        document.getElementById("DashBoardNavigation").style.left = "0";
-        document.getElementById("Overlay").style.display = "none";
+        $("#DashBoardNavigation").css("left", "0");
+        $("#Overlay").css("display", "none");
       }
     }
     window.addEventListener('resize', updateSize);

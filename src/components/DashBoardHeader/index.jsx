@@ -1,7 +1,7 @@
 import { MenuOutlined } from "@ant-design/icons";
+import $ from "jquery";
 import React from 'react';
 import { useSelector } from "react-redux";
-import { NavLink } from 'react-router-dom';
 import "./style.scss";
 
 function DashBoardHeader(props) {
@@ -9,8 +9,8 @@ function DashBoardHeader(props) {
   const avatarUrl = `https://ui-avatars.com/api/?background=random&name=${studentProfile.displayName}`;
 
   const handleClickOpenMenu = () => {
-    document.getElementById("DashBoardNavigation").style.left = 0;
-    document.getElementById("Overlay").style.display = "block";
+    $("#DashBoardNavigation").css("left", "0");
+    $("#Overlay").css("display", "block");
   }
 
   return (
@@ -22,7 +22,7 @@ function DashBoardHeader(props) {
         </div>
         <div><img src={avatarUrl} alt="Avatar" className="DashBoardHeader__student__avatar" /></div>
       </div>
-      <NavLink to="/dashboard" className="DashBoardHeader__banner"><span>KMA</span>&nbsp;&nbsp;<span>Schedule</span></NavLink>
+      <div className="DashBoardHeader__banner"><span>KMA</span>&nbsp;&nbsp;<span>Schedule</span></div>
       <div className="DashBoardHeader__openMenu" id="DashBoardHeader__openMenu" onClick={handleClickOpenMenu}>
         <MenuOutlined />
       </div>

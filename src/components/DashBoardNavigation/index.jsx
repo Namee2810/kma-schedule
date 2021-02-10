@@ -2,6 +2,7 @@ import { CloseOutlined, DownloadOutlined, PlusCircleOutlined, PoweroffOutlined, 
 import { notification } from "antd";
 import Image from "cloudinary-react/lib/components/Image";
 import createIcsString from "global/functions/createIcsString";
+import $ from "jquery";
 import React, { useEffect } from 'react';
 import { useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
@@ -14,8 +15,8 @@ function DashBoardNavigation(props) {
   const avatarUrl = `https://ui-avatars.com/api/?background=random&name=${studentProfile.displayName}`;
 
   const handleClickCloseMenu = () => {
-    document.getElementById("DashBoardNavigation").style.left = "-300px";
-    document.getElementById("Overlay").style.display = "none";
+    $("#DashBoardNavigation").css("left", "-300px");
+    $("#Overlay").css("display", "none");
   }
   const handleClickLogOut = () => {
     localStorage.clear();

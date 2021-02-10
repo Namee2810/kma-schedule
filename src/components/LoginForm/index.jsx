@@ -1,6 +1,7 @@
 import { CloseOutlined, LoadingOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Checkbox, Form, Input, notification } from "antd";
 import userAPI from "api/userAPI";
+import $ from "jquery";
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import "./style.scss";
@@ -8,19 +9,19 @@ import "./style.scss";
 const layout = {
   labelCol: {
     lg: 7,
-    md: 6,
-    sm: 6,
+    md: 8,
+    sm: 7,
   },
   wrapperCol: {
-    lg: 12,
+    lg: 14,
     md: 14,
-    sm: 14,
+    sm: 12,
   },
 };
 const rememberLayout = {
   wrapperCol: {
     lg: { offset: 7, span: 12 },
-    md: { offset: 6, span: 12 },
+    md: { offset: 8, span: 12 },
     sm: { offset: 6, span: 12 },
     xs: { offset: 8, span: 12 },
   },
@@ -88,7 +89,7 @@ function LoginForm() {
     }
   };
   const handleCloseLoginForm = () => {
-    document.getElementById("LoginForm").style.transform = "translateY(0)";
+    $("#LoginForm").removeClass("LoginForm--open");
   }
 
   return (

@@ -1,6 +1,7 @@
 import { DownOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import { Image } from "cloudinary-react";
+import $ from "jquery";
 import React from 'react';
 import "./style.scss";
 
@@ -8,12 +9,12 @@ const LoginForm = React.lazy(() => import("components/LoginForm"));
 
 function LoginPage(props) {
   const handleClickLogin = () => {
-    document.getElementById("LoginForm").style.transform = "translateY(-100vh)";
+    $("#LoginForm").addClass("LoginForm--open");
   }
   return (
     <div className="LoginPage" id="LoginPage">
       <Row>
-        <Col md={10} sm={24} xs={24}>
+        <Col md={14} sm={24} xs={24}>
           <div className="LoginPage__header">
             <div className="LoginPage__header__logo">
               <a href="/"><Image cloudName="db2nhrkkl" publicId="logo" /></a>
@@ -25,11 +26,11 @@ function LoginPage(props) {
             </div>
           </div>
         </Col>
-        <Col md={14} sm={24} xs={24}>
+        <Col md={10} sm={24} xs={24}>
           <LoginForm />
         </Col>
       </Row>
-    </div>
+    </div >
   );
 }
 

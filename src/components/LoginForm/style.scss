@@ -14,9 +14,12 @@ $color: #4ee2a3;
     style: solid;
     color: $color;
   }
-
+  &--open {
+    transform: translateY(-100vh);
+  }
   @media (max-width: 768px) {
     border: none;
+    animation: none;
   }
 
   &__form {
