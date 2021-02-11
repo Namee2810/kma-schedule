@@ -14,7 +14,7 @@ $color: #4ee2a3;
   }
   @media (max-width: 768px) {
     animation: none;
-    background: white;
+    background: whitesmoke;
   }
 
   &__form {
@@ -30,9 +30,10 @@ $color: #4ee2a3;
       padding: 0;
       border-radius: 0;
       width: 100%;
+      background: none;
     }
     padding: 150px 0;
-    background: white;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 40%, rgba(208, 208, 208, 0.7035189075630253) 100%);
     width: 85%;
     border-radius: 10px;
   }
