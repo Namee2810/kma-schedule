@@ -14,7 +14,7 @@ function LoginPage(props) {
   return (
     <div className="LoginPage" id="LoginPage">
       <Row>
-        <Col md={14} sm={24} xs={24}>
+        <Col md={10} sm={24} xs={24}>
           <div className="LoginPage__header">
             <div className="LoginPage__header__logo">
               <a href="/"><Image cloudName="db2nhrkkl" publicId="logo" /></a>
@@ -26,7 +26,7 @@ function LoginPage(props) {
             </div>
           </div>
         </Col>
-        <Col md={10} sm={24} xs={24}>
+        <Col md={14} sm={24} xs={24}>
           <LoginForm />
         </Col>
       </Row>
