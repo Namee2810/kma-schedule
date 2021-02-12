@@ -7,7 +7,7 @@ function PageNotFound(props) {
     <div className="PageNotFound">
       <p>Opps !!!<br />Trang không tồn tại 😢</p>
       <Link to="/"><button className="button button__animation">Trang chủ</button></Link>
-    </div >
+    </div>
   );
 }
 

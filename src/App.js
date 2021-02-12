@@ -4,7 +4,7 @@ import PrivateRoute from 'components/PrivateRoute';
 import PublicRoute from 'components/PublicRoute';
 import "global/styles/style.scss";
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 
 const LoginPage = React.lazy(() => import("pages/LoginPage"));
@@ -15,15 +15,13 @@ function App() {
   return (
     <div className="App">
       <Suspense fallback={<Loading />}>
-        <Router>
-          <Switch>
-            <PublicRoute component={LoginPage} exact path="/" />
-            <PrivateRoute component={DashBoardPage} path="/dashboard" />
-            <Route path="*">
-              <PageNotFound />
-            </Route>
-          </Switch>
-        </Router>
+        <Switch>
+          <PublicRoute component={LoginPage} exact path="/" />
+          <PrivateRoute component={DashBoardPage} path="/dashboard" />
+          <Route path="*">
+            <PageNotFound />
+          </Route>
+        </Switch>
       </Suspense>
     </div>
   );

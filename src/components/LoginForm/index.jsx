@@ -126,12 +126,15 @@ function LoginForm() {
         <Form.Item
           {...buttonLayout}
         >
-          <button type="submit" className="button button__animation" style={{ width: "192px" }}>
+          <button type="submit"
+            className="LoginForm__form__button button button__animation"
+            style={{ width: "192px" }}
+          >
             {logging ? <LoadingOutlined style={{ fontSize: "24px" }} /> : "Đăng nhập"}
           </button>
         </Form.Item>
       </Form>
-    </div>
+    </div >
   );
 };
 
