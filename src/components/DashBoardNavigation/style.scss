@@ -7,6 +7,7 @@
   transition: all 0.4s;
   //animation: DashBoardNavigation__animation 0.75s ease backwards;
   z-index: 999;
+  overflow: auto;
   @media (max-width: 992px) {
     left: -300px;
     animation: none;

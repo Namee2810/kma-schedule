@@ -44,3 +44,17 @@ a {
   z-index: 998;
   background-color: rgba(0, 0, 0, 0.39);
 }
+* {
+  ::-webkit-scrollbar {
+    width: 8px;
+    &-track {
+      background: #f7f7f7;
+    }
+    &-thumb {
+      background: #aaa;
+    }
+    &-thumb:hover {
+      background: #999;
+    }
+  }
+}

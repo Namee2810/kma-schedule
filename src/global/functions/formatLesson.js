@@ -48,7 +48,7 @@ function formatLessons(lessons, option) {
 
     default: break;
   }
-  if (option === 1) return (`${from} → ${to}`);
+  if (option === 1) return (`${from}→${to}`);
   else return [from, to];
 };
 
