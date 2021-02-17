@@ -88,6 +88,12 @@ function LoginForm() {
         });
     }
   };
+  const onFinishFailed = () => {
+    $("#LoginForm__form__button").addClass("animate__animated animate__shakeX");
+    setTimeout(() => {
+      $("#LoginForm__form__button").removeClass("animate__animated animate__shakeX");
+    }, 1000)
+  }
   const handleCloseLoginForm = () => {
     $("#LoginForm").removeClass("LoginForm--open");
   }
@@ -100,6 +106,7 @@ function LoginForm() {
         labelAlign="right"
         initialValues={{ remember: false }}
         onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
         {...layout}
         size="large"
       >
@@ -129,6 +136,7 @@ function LoginForm() {
           <button type="submit"
             className="LoginForm__form__button button button__animation"
             style={{ width: "192px" }}
+            id="LoginForm__form__button"
           >
             {logging ? <LoadingOutlined style={{ fontSize: "24px" }} /> : "Đăng nhập"}
           </button>

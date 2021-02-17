@@ -1,10 +1,4 @@
 .CalendarDesktop {
-  tr {
-    height: 10px !important;
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
   &__events {
     list-style: none;
     margin: 0;
@@ -137,5 +131,76 @@ th {
   border-color: #1ed760 !important;
   &:hover {
     color: white !important;
+  }
+}
+.CalendarMobile {
+  @media (min-width: 769px) {
+    display: none;
+  }
+
+  &__calendar {
+    box-shadow: 0 4.5px 3.6px rgba(0, 0, 0, 0.024), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+      0 30.1px 24.1px rgba(0, 0, 0, 0.046), 0 100px 80px rgba(0, 0, 0, 0.07);
+  }
+
+  &__detail {
+    margin-top: 25px;
+    min-height: 350px;
+    background-color: #dfffea;
+    padding: 20px;
+    position: relative;
+  }
+
+  &__item {
+    text-align: left;
+    margin-bottom: 30px;
+    &__title {
+      display: inline;
+      color: white;
+      border-radius: 15px;
+      padding: 5px 10px;
+      font: {
+        weight: bold;
+        size: 20px;
+      }
+    }
+    &__content {
+      line-height: 0.5;
+      padding: 15px 0 0 8px;
+      color: rgb(75, 75, 75);
+      font: {
+        weight: 400;
+        size: 16px;
+      }
+      white-space: nowrap;
+    }
+  }
+
+  &__nonSubject {
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 120px;
+    font: {
+      weight: bold;
+      size: 20px;
+    }
+    &__cry {
+      position: absolute;
+      font: {
+        weight: bold;
+      }
+      animation: CalendarMobile__nonSubject__cry__animation 1s ease infinite;
+    }
+  }
+}
+
+@keyframes CalendarMobile__nonSubject__cry__animation {
+  0% {
+    transform: rotateZ(20deg);
+  }
+  50% {
+    transform: rotateZ(-20deg);
+  }
+  100% {
+    transform: rotateZ(20deg);
   }
 }

@@ -1,8 +1,7 @@
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { Calendar, Popover, Radio, Typography } from 'antd';
+import { Badge, Popover } from 'antd';
 import formatLessons from 'global/functions/formatLesson';
-import moment from "moment";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Calendar from "ui/Calendar";
 import "./style.scss";
 
 function getRandomColor(day) {
@@ -17,115 +16,96 @@ function getRandomColor(day) {
 }
 
 function CalendarDesktop(props) {
+  const [fullscreen, setFullscreen] = useState(true);
   const { schedule } = props;
-  const [mode, setMode] = useState("month")
-
   const getSubjects = (value) => {
     let listSubjects = [];
-    value = value.format("DD-MM-YYYY").split("-");
     if (schedule.length > 0)
       schedule.forEach(item => {
         let day = item.day.split("/");
-        if (Number(value[0]) === Number(day[0])
-          && Number(value[1]) === Number(day[1])
-          && Number(value[2]) === Number(day[2])) listSubjects.push(item);
+        if (value.date === Number(day[0])
+          && value.month + 1 === Number(day[1])
+          && value.year === Number(day[2])) listSubjects.push(item);
       });
 
     return listSubjects;
-  }
-
-  const validRange = () => {
-    let firstDay = schedule[0].day.split("/").reverse().join("");
-    let lastDay = String(Number(schedule[schedule.length - 1].day.split("/").reverse().join("")) + 1);
-    return [moment(firstDay), moment(lastDay)];
   }
   const dateCellRender = (value) => {
     const listSubjects = getSubjects(value);
     if (listSubjects.length > 0)
       return (
-        <div>
-          <ul className="CalendarDesktop__events">
-            {listSubjects.map(item => (
-              <Popover placement="right" trigger="hover"
-                title={<b>{item.subjectName} ({item.subjectCode})</b>}
-                content={
-                  <div>
-                    <p>Lớp: <b>{item.className}</b></p>
+        fullscreen ?
+          <div>
+            <ul className="CalendarDesktop__events">
+              {listSubjects.map(item => (
+                <Popover placement="right" trigger="hover"
+                  title={<b>{item.subjectName} ({item.subjectCode})</b>}
+                  content={
+                    <div>
+                      <p>Lớp: <b>{item.className}</b></p>
+                      <p>Thời gian: <b>{item.day} {formatLessons(item.lesson, 1)}</b></p>
+                      <p>Phòng: <b>{item.room}</b></p>
+                      <p>Giáo viên: <b>{item.teacher}</b></p>
+                    </div>
+                  }
+                  key={item.subjectCode + item.day}
+                >
+                  <li style={{ backgroundColor: getRandomColor(item.day) }}>{item.subjectName}</li>
+                </Popover>
+              ))}
+            </ul>
+          </div>
+          : <div><Badge dot style={{ marginRight: "8px" }} /></div>
+      );
+  }
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (window.innerWidth > 768) {
+        if (!fullscreen) setFullscreen(true);
+      }
+      else {
+        if (fullscreen) setFullscreen(false);
+      }
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+
+  }, [fullscreen]);
+
+  const onSelect = (value) => {
+    setSubjects(getSubjects(value));
+  }
+
+  const [subjects, setSubjects] = useState(getSubjects((() => {
+    const date = new Date();
+    return { date: date.getDate(), month: date.getMonth(), year: date.getFullYear() }
+  })()));
+
+  return (
+    <div>
+      <Calendar fullscreen={fullscreen} dateCellRender={dateCellRender} onSelect={onSelect} />
+      {
+        !fullscreen && <div className="CalendarMobile__detail">
+          {subjects.length > 0
+            ? <div className="CalendarMobile__haveSubject">
+              {subjects.map(item => (
+                <div className="CalendarMobile__item" key={item.subjectCode + item.day}>
+                  <div className="CalendarMobile__item__title" style={{ backgroundColor: getRandomColor(item.day) }}>{item.subjectName}</div>
+                  <div className="CalendarMobile__item__content">
                     <p>Thời gian: <b>{item.day} {formatLessons(item.lesson, 1)}</b></p>
                     <p>Phòng: <b>{item.room}</b></p>
                     <p>Giáo viên: <b>{item.teacher}</b></p>
                   </div>
-                }
-                key={item.subjectCode + item.day}
-              >
-                <li style={{ backgroundColor: getRandomColor(item.day) }}>{item.subjectName}</li>
-              </Popover>
-            ))}
-          </ul>
-        </div >
-      );
-  }
-  const onPanelChange = (value, mode) => {
-    setMode(mode)
-  }
-  const onSelect = (value) => {
-    if (mode === "year") setMode("month")
-    if (mode === "month") {
-
-    }
-  }
-  const headerRender = ({ value, type, onChange, onTypeChange }) => {
-    const month = value.month();
-    const year = value.year();
-
-    const onClickPreviousMonth = () => {
-      const newValue = value.clone();
-      newValue.month(month - 1);
-      onChange(newValue);
-    }
-    const onClickNextMonth = () => {
-      const newValue = value.clone();
-      newValue.month(month + 1);
-      onChange(newValue);
-    }
-    const onClickToday = () => {
-      onChange(moment());
-    }
-
-    return (
-      <div style={{ marginBottom: "10px" }}>
-        <Typography.Title level={3}>{`Tháng ${month + 1}, ${year}`}</Typography.Title>
-        <div className="CalendarDesktop__header">
-          <div className="CalendarDesktop__changeMonth">
-            <div onClick={onClickPreviousMonth} className="CalendarDesktop__changeMonth__item">
-              <LeftOutlined />
+                </div>
+              ))}
             </div>
-            <div onClick={onClickNextMonth} className="CalendarDesktop__changeMonth__item">
-              <RightOutlined />
-            </div>
-            <div className="CalendarDesktop__today" onClick={onClickToday}><span>Về hôm nay</span></div>
-          </div>
-          <div className="CalendarDesktop__changeMode">
-            <Radio.Group onChange={e => onTypeChange(e.target.value)} value={type}>
-              <Radio.Button value="month">Tháng</Radio.Button>
-              <Radio.Button value="year">Năm</Radio.Button>
-            </Radio.Group>
-          </div>
-        </div >
-      </div >
-    )
-  };
-
-  return (
-    <div className="CalendarDesktop">
-      <Calendar
-        mode={mode}
-        dateCellRender={dateCellRender}
-        validRange={validRange()}
-        onPanelChange={onPanelChange}
-        onSelect={onSelect}
-        headerRender={headerRender}
-      />
+            : <div className="CalendarMobile__nonSubject">
+              <p>Không có tiết học trong ngày này <span className="CalendarMobile__nonSubject__cry">😭</span>
+              </p>
+            </div>}
+        </div>
+      }
     </div>
   );
 }

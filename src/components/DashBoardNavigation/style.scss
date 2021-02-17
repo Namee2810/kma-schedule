@@ -36,7 +36,6 @@
       size: 28px;
       weight: 500;
     }
-    transition: all 0.5s;
     &--active {
       background: linear-gradient(90deg, rgba(46, 46, 46, 0.5) 40%, rgba(84, 84, 84, 0.05) 100%) !important;
       transform: translateX(-10px);
@@ -48,8 +47,22 @@
       position: absolute;
       top: 13px;
     }
-    &:hover {
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
       background: linear-gradient(90deg, rgba(119, 119, 119, 0.1) 31%, rgba(215, 215, 215, 0.1) 100%);
+      opacity: 0;
+      transition: all 0.25s;
+    }
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
     }
   }
   &__closeMenu {

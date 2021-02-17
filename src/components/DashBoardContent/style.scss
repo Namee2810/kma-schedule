@@ -4,6 +4,7 @@
   height: calc(100% - 65px);
   right: 0;
   bottom: 0;
+  overflow: auto;
   //animation: DashBoardContent__animation 1s ease backwards;
   @media (max-width: 992px) {
     width: 100%;
