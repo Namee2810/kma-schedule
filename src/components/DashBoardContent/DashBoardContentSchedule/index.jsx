@@ -1,3 +1,4 @@
+import useWidth from "hooks/useWidth";
 import $ from "jquery";
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -8,18 +9,15 @@ const CalendarDesktop = React.lazy(() => import("components/CalendarDesktop"));
 
 function DashBoardContent_Schedule(props) {
   const schedule = useSelector(state => state.schedule);
+  const width = useWidth();
 
   useEffect(() => {
-    const updateSize = () => {
-      if (window.innerWidth > 992) {
-        $("#DashBoardNavigation").css("left", "0");
-        $("#Overlay").css("display", "none");
-      }
+    if (width > 992) {
+      $("#DashBoardNavigation").css("left", "0");
+      $("#Overlay").css("display", "none");
     }
-    window.addEventListener('resize', updateSize);
-    updateSize();
 
-  }, []);
+  }, [width]);
 
   return (
     schedule.length > 0 ?
