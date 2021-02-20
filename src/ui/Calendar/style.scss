@@ -12,14 +12,13 @@ $color-fade: #eafff1;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding: 10px 20px;
-
-    div:nth-child(1) {
-      grid-column: 2;
-    }
-
     font: {
       size: 22px;
       weight: 500;
+    }
+
+    div:nth-child(1) {
+      grid-column: 2;
     }
 
     &-now {
@@ -30,6 +29,10 @@ $color-fade: #eafff1;
       transition: all 0.2s ease-in-out;
       white-space: nowrap;
       cursor: pointer;
+
+      &:hover {
+        background: #1cc958;
+      }
     }
 
     &-month {
@@ -41,7 +44,7 @@ $color-fade: #eafff1;
         height: 40px;
         width: 40px;
         border-radius: 50%;
-        font-family: "Comic Sans MS";
+        font-family: cursive;
 
         transition: background 0.2s ease-in-out;
         cursor: pointer;
