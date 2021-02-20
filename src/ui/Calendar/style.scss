@@ -114,13 +114,16 @@ $color-fade: #eafff1;
       weight: 600;
       size: 16px;
     }
+    & > div:first-child {
+      color: #fd6519;
+    }
   }
 
   &-month {
     &-dates {
       display: grid;
       justify-content: center;
-      grid-gap: 10px;
+      grid-column-gap: 10px;
       grid-template-columns: repeat(7, calc(100% / 7 - 10px));
       transition: all 0.25s;
       &-prev {

@@ -54,7 +54,10 @@ function generateCalendar(current, props) {
       },
         React.createElement('div', {
           className: "calendar-month-date-value",
-          key: i
+          key: i,
+          style: {
+            color: ((i - 1) % 7 === 0) && "#FD6519"
+          }
         }, i - startDay),
         dateCellRender &&
         dateCellRender({ date: i - startDay, month: current.month, year: current.year }) && React.createElement('div', {
