@@ -2,7 +2,6 @@ import DashBoardContent from "components/DashBoardContent";
 import DashBoardHeader from "components/DashBoardHeader";
 import DashBoardNavigation from "components/DashBoardNavigation";
 import authenticateToken from "global/functions/authenticateToken";
-import $ from "jquery";
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { SET_SCHEDULE, SET_STUDENT_PROFILE } from "store/slice";
@@ -11,10 +10,6 @@ import { SET_SCHEDULE, SET_STUDENT_PROFILE } from "store/slice";
 function DashBoardPage(props) {
   const dispatch = useDispatch();
 
-  const handleClickOverlay = () => {
-    if (window.innerWidth < 993) $("#DashBoardNavigation").css("left", "-300px");
-    $("#Overlay").css("display", "none");
-  }
   useEffect(() => {
     const token = localStorage.getItem("token");
     const decoded = authenticateToken(token); // undefined or string
@@ -25,7 +20,7 @@ function DashBoardPage(props) {
   }, [dispatch])
   return (
     <div className="DashBoardPage">
-      <div className="Overlay" id="Overlay" onClick={handleClickOverlay} />
+      <div className="Overlay" id="Overlay" />
       <DashBoardNavigation />
       <DashBoardHeader />
       <DashBoardContent />

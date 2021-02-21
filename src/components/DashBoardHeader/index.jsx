@@ -10,7 +10,6 @@ function DashBoardHeader(props) {
 
   const handleClickOpenMenu = () => {
     $("#DashBoardNavigation").css("left", "0");
-    $("#Overlay").css("display", "block");
   }
 
   return (

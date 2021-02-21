@@ -16,7 +16,6 @@ function DashBoardNavigation(props) {
 
   const handleClickCloseMenu = () => {
     $("#DashBoardNavigation").css("left", "-300px");
-    $("#Overlay").css("display", "none");
   }
   const handleClickLogOut = () => {
     localStorage.clear();
@@ -29,7 +28,6 @@ function DashBoardNavigation(props) {
       navLink[i].onclick = () => {
         if (window.innerWidth < 993) {
           document.getElementById("DashBoardNavigation").style.left = "-300px";
-          document.getElementById("Overlay").style.display = "none";
         }
       }
     }

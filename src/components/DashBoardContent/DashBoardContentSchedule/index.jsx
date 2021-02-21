@@ -14,7 +14,6 @@ function DashBoardContent_Schedule(props) {
   useEffect(() => {
     if (width > 992) {
       $("#DashBoardNavigation").css("left", "0");
-      $("#Overlay").css("display", "none");
     }
 
   }, [width]);

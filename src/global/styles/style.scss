@@ -34,16 +34,6 @@ a {
     color: white;
   }
 }
-.Overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 998;
-  background-color: rgba(0, 0, 0, 0.39);
-}
 * {
   ::-webkit-scrollbar {
     width: 8px;
