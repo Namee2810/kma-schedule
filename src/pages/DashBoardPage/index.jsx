@@ -20,7 +20,6 @@ function DashBoardPage(props) {
   }, [dispatch])
   return (
     <div className="DashBoardPage">
-      <div className="Overlay" id="Overlay" />
       <DashBoardNavigation />
       <DashBoardHeader />
       <DashBoardContent />
