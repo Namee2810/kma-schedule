@@ -7,7 +7,7 @@ $color: #1ed760;
     0 100px 80px rgba(0, 0, 0, 0.07);
 }
 .form {
-  color: rgb(228, 228, 228);
+  color: rgb(240, 240, 240);
   font-size: 20px;
   &_field {
     position: relative;
@@ -70,7 +70,7 @@ $color: #1ed760;
   }
 }
 ::placeholder {
-  color: rgb(228, 228, 228);
+  color: rgb(240, 240, 240);
 }
 @keyframes form_error {
   from {
