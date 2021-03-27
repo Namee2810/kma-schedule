@@ -9,6 +9,7 @@ import "./style.scss";
 
 function AuthForm() {
   const [checking, setChecking] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   let history = useHistory();
 
   const { register, handleSubmit, errors } = useForm();
@@ -94,12 +95,14 @@ function AuthForm() {
         </div>
         <div className="form_field">
           <LockOutlinedIcon className="form_field-icon" style={{ fontSize: "30px" }} />
-          <input type="password" name="password"
+          <input type={showPass ? "text" : "password"} name="password"
             className="form_input"
             placeholder="Mật khẩu"
             autoComplete="off"
+            onDoubleClick={() => setShowPass(!showPass)}
             ref={register({ required: true })} />
         </div>
+        <div style={{ fontSize: "14px" }}>Nhấn đúp vào ô mật khẩu để ẩn/hiện mật khẩu</div>
         <button id="form_submit" type="submit" className="form_submit button">Đăng nhập</button>
       </form>
     </div >
