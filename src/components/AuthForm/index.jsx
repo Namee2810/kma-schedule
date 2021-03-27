@@ -89,6 +89,7 @@ function AuthForm() {
           <input type="text" name="username"
             className="form_input"
             placeholder="Mã sinh viên"
+            autoComplete="off"
             ref={register({ required: true })} />
         </div>
         <div className="form_field">
@@ -96,6 +97,7 @@ function AuthForm() {
           <input type="password" name="password"
             className="form_input"
             placeholder="Mật khẩu"
+            autoComplete="off"
             ref={register({ required: true })} />
         </div>
         <button id="form_submit" type="submit" className="form_submit button">Đăng nhập</button>
