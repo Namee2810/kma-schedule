@@ -35,6 +35,9 @@ $color: #1ed760;
     background: none;
     width: 300px;
     text-align: center;
+    @media (max-width: 768px) {
+      width: calc(100% - 30px);
+    }
   }
   button {
     margin-top: 50px;

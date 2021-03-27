@@ -84,13 +84,12 @@ function AuthForm() {
 
   return (
     <div className="AuthForm" id="AuthForm">
-      <form onSubmit={handleSubmit(onSubmit)} className="form">
+      <form onSubmit={handleSubmit(onSubmit)} className="form" autocomplete="off">
         <div className="form_field">
           <FaceIcon className="form_field-icon" style={{ fontSize: "30px" }} />
           <input type="text" name="username"
             className="form_input"
             placeholder="Mã sinh viên"
-            autoComplete="off"
             ref={register({ required: true })} />
         </div>
         <div className="form_field">
@@ -98,7 +97,6 @@ function AuthForm() {
           <input type={showPass ? "text" : "password"} name="password"
             className="form_input"
             placeholder="Mật khẩu"
-            autoComplete="off"
             onDoubleClick={() => setShowPass(!showPass)}
             ref={register({ required: true })} />
         </div>
