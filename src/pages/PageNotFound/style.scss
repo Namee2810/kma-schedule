@@ -1,6 +1,14 @@
 .PageNotFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   font: {
     size: 3em;
   }
   height: 100vh;
+
+  p {
+    margin-bottom: 10px;
+  }
 }

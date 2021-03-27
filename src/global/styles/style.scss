@@ -7,20 +7,23 @@ a {
 }
 .button {
   cursor: pointer;
-  position: relative;
   display: block;
-  margin: 0 auto;
   border: none;
-  padding: 15px 45px;
+  border-radius: 20px;
+  padding: 5px 20px;
 
   transition: all 0.5s;
 
   background: #1ed760;
   color: white;
   outline: none;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
   font: {
-    size: 20px !important;
-    weight: 500 !important;
+    size: 20px;
+    weight: 500;
   }
   a {
     color: white;

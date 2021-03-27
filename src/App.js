@@ -7,7 +7,7 @@ import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import './App.css';
 
-const LoginPage = React.lazy(() => import("pages/LoginPage"));
+const AuthPage = React.lazy(() => import("pages/AuthPage"));
 const DashBoardPage = React.lazy(() => import("pages/DashBoardPage"));
 const PageNotFound = React.lazy(() => import("pages/PageNotFound"));
 
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Suspense fallback={<Loading />}>
         <Switch>
-          <PublicRoute component={LoginPage} exact path="/" />
+          <PublicRoute component={AuthPage} exact path="/" />
           <PrivateRoute component={DashBoardPage} path="/dashboard" />
           <Route path="*">
             <PageNotFound />

@@ -18,8 +18,7 @@ function getRandomColor(day) {
 
 function CalendarDesktop(props) {
   const { schedule } = props;
-  const [mode, setMode] = useState("month")
-
+  const [mode, setMode] = useState("month");
   const getSubjects = (value) => {
     let listSubjects = [];
     value = value.format("DD-MM-YYYY").split("-");
