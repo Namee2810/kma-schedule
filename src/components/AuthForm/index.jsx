@@ -7,7 +7,8 @@ import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
 import "./style.scss";
 
-function AuthForm() {
+function AuthForm(props) {
+  const { setToken } = props;
   const [checking, setChecking] = useState(false);
   const [showPass, setShowPass] = useState(false);
   let history = useHistory();
@@ -36,7 +37,7 @@ function AuthForm() {
                 message: "Đăng nhập thành công 🎉",
               });
               if (res.token) localStorage.setItem("token", res.token);
-              history.push("/dashboard");
+              setToken(res.token)
               break;
             }
             default: {
@@ -61,7 +62,6 @@ function AuthForm() {
     }
   }
   useEffect(() => {
-    console.log(errors);
     if (errors.username) {
       notification.warn({ message: "Vui lòng nhập mã sinh viên !" })
       return
@@ -84,7 +84,7 @@ function AuthForm() {
 
   return (
     <div className="AuthForm" id="AuthForm">
-      <form onSubmit={handleSubmit(onSubmit)} className="form" autocomplete="off">
+      <form onSubmit={handleSubmit(onSubmit)} className="form" autoComplete="off">
         <div className="form_field">
           <FaceIcon className="form_field-icon" style={{ fontSize: "30px" }} />
           <input type="text" name="username"

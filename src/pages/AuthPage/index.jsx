@@ -4,10 +4,11 @@ import "./style.scss";
 const AuthForm = React.lazy(() => import("components/AuthForm"));
 
 function AuthPage(props) {
+  const { setToken } = props;
 
   return (
     <div className="AuthPage" id="AuthPage">
-      <AuthForm />
+      <AuthForm setToken={setToken} />
       <div className="AuthPage_footer">
         <div className="AuthPage_footer-tag">
           <span style={{ color: "red" }}>KMA</span> SCHEDULE

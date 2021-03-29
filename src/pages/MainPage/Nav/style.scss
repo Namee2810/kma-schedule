@@ -1,0 +1,72 @@
+.Nav {
+  position: fixed;
+  top: 60px;
+  height: calc(100vh - 60px);
+  width: 56px;
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-right: 1px solid #dadce0;
+  transition: width 0.2s ease-in-out;
+  z-index: 1;
+  box-shadow: 0 0px 21px rgb(30, 215, 96, 0.2);
+  overflow-y: auto;
+
+  @media (max-width: 576px) {
+    width: 0;
+  }
+  @media (min-width: 577px) {
+    width: 56px !important;
+  }
+
+  &:hover {
+    width: 220px !important;
+
+    & .Nav_footer {
+      opacity: 1;
+    }
+  }
+
+  &_item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-left: 4px solid transparent;
+
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    font: {
+      size: 16px;
+      weight: 500;
+    }
+    transition: all 0.25s;
+    &:hover {
+      background: rgb(235, 235, 235);
+    }
+
+    &-active {
+      border-left-color: #00d46e;
+      color: #00d46e !important;
+    }
+    &-title {
+      padding-left: 12px;
+    }
+  }
+
+  &_footer {
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font: {
+      weight: bold;
+    }
+    transition: all 0.2s;
+    & > a {
+      color: #1ed760;
+    }
+  }
+}

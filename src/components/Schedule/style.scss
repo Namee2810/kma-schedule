@@ -1,0 +1,148 @@
+.Schedule {
+  float: right;
+  width: calc(100vw - 56px);
+  height: calc(100vh - 60px);
+  transition: all 0.2s;
+  margin-top: 60px;
+
+  @media (max-width: 576px) {
+    width: 100vw;
+  }
+
+  &_events {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+
+    li {
+      color: white !important;
+      padding: 0 5px;
+      font-weight: 700;
+      margin-bottom: 2px;
+      border-radius: 5px;
+    }
+  }
+  &_header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &_changeMonth {
+    &_item {
+      font-size: 22px;
+      cursor: pointer;
+      display: inline;
+      padding: 7px 12px;
+      border-radius: 50%;
+      margin-left: 5px;
+      transition: all 0.25s;
+      &:hover {
+        background-color: #dfffe9;
+      }
+    }
+  }
+  &_today {
+    cursor: pointer;
+    display: inline-block;
+    background-color: #1ed760;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 20px;
+    font: {
+      size: 18px;
+      weight: 700;
+    }
+  }
+  &_mobile {
+    display: flex;
+    justify-content: center;
+  }
+  &_item {
+    color: rgb(100, 100, 100);
+    margin: 10px 0;
+    width: 90vw;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: max-content auto;
+    place-items: center;
+
+    box-shadow: 0 0px 2.5px rgba(0, 0, 0, 0.075), 0 0px 20px rgba(0, 0, 0, 0.15);
+
+    animation: Schedule_item 0.35s ease-in-out;
+
+    &-time {
+      height: 100%;
+      padding: 5px 10px;
+
+      border-radius: 10px;
+      background: #1ed760;
+      color: white;
+
+      display: flex;
+      align-items: center;
+
+      & > div > div {
+        &:first-child {
+          font-weight: bold;
+        }
+      }
+    }
+    &-detail {
+      text-align: left;
+      width: 100%;
+      padding: 5px;
+
+      display: grid;
+      grid-template-rows: auto auto;
+      grid-template-columns: auto auto;
+      grid-column-gap: 10px;
+
+      & > div {
+        &:first-child {
+          grid-column: 1;
+          grid-row: 1/3;
+          place-self: center;
+
+          border-right: 1px solid #1ed760;
+          padding-right: 10px;
+        }
+      }
+    }
+    &-value {
+      font-weight: bold;
+    }
+  }
+}
+.ant-popover {
+  &-inner {
+    box-shadow: 0 6.7px 5.5px rgba(0, 0, 0, 0.034), 0 12.3px 17.8px rgba(0, 0, 0, 0.045),
+      0 18.4px 40.3px rgba(0, 0, 0, 0.053), 0 30px 75.8px rgba(0, 0, 0, 0.066), 0 76px 100px rgba(0, 0, 0, 0.1);
+
+    &-content {
+      font-size: 16px !important;
+    }
+  }
+  &-title {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font: {
+      size: 18px;
+    }
+    background-color: #1ed760;
+  }
+}
+
+@keyframes Schedule_item {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
