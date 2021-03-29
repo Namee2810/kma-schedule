@@ -106,10 +106,15 @@
           grid-row: 1/3;
           place-self: center;
 
-          border-right: 1px solid #1ed760;
           padding-right: 10px;
         }
       }
+    }
+    &-key {
+      font-weight: 500;
+      color: #1ed760;
+      display: inline;
+      border-bottom: 2px dashed #1ed760;
     }
     &-value {
       font-weight: bold;
