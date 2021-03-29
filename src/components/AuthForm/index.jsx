@@ -4,14 +4,12 @@ import { notification } from 'antd';
 import userAPI from 'api/userAPI';
 import { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { useHistory } from 'react-router-dom';
 import "./style.scss";
 
 function AuthForm(props) {
   const { setToken } = props;
   const [checking, setChecking] = useState(false);
   const [showPass, setShowPass] = useState(false);
-  let history = useHistory();
 
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = async values => {
