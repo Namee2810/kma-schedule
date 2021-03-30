@@ -5,17 +5,6 @@ import React, { useEffect, useState } from 'react';
 import Calendar from 'ui/Calendar';
 import "./style.scss";
 
-function getRandomColor(day) {
-  day = Number(day.split("/").join(""));
-  let color = day.toString(16);
-  if (color.length > 6) {
-    color = color.slice(0, 6);
-  }
-  if (color.length < 6) color += "f";
-
-  return `#${color}`;
-}
-
 function Schedule(props) {
   const { schedule } = props;
   const width = useWidth();
@@ -37,25 +26,40 @@ function Schedule(props) {
     if (listSubjects.length > 0)
       return (
         fullscreen ?
-          <div>
-            <ul className="Schedule_events">
-              {listSubjects.map(item => (
-                <Popover placement="right" trigger="hover"
-                  title={<b>{item.subjectName} ({item.subjectCode})</b>}
-                  content={
+          <div className="Schedule_events">
+            {listSubjects.map(item => (
+              <Popover placement="right" trigger="hover"
+                title={<b>{item.subjectName} ({item.subjectCode})</b>}
+                content={
+                  <div className="Schedule_event">
                     <div>
-                      <p>Lớp: <b>{item.className}</b></p>
-                      <p>Thời gian: <b>{item.day} {formatLessons(item.lesson, 1)}</b></p>
-                      <p>Phòng: <b>{item.room}</b></p>
-                      <p>Giáo viên: <b>{item.teacher}</b></p>
+                      <span className="Schedule_event-key">Thời gian:</span>
+                      <span className="Schedule_event-value">
+                        {item.day} {formatLessons(item.lesson, 1)}
+                      </span>
                     </div>
-                  }
-                  key={item.subjectCode + item.day}
-                >
-                  <li style={{ backgroundColor: getRandomColor(item.day) }}>{item.subjectName}</li>
-                </Popover>
-              ))}
-            </ul>
+                    <div>
+                      <span className="Schedule_event-key">Phòng:</span>
+                      <span className="Schedule_event-value">
+                        {item.room ? item.room : "-"}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="Schedule_event-key">Giáo viên:</span>
+                      <span className="Schedule_event-value">
+                        {item.teacher ? item.teacher : "-"}
+                      </span>
+                    </div>
+                  </div>
+                }
+                key={item.subjectCode + item.day}
+              >
+                <div className="Schedule_event">
+                  <span className="Schedule_event-key">{formatLessons(item.lesson, 2)[0]}</span>
+                  <span className="Schedule_event-value">{item.subjectName}</span>
+                </div>
+              </Popover>
+            ))}
           </div>
           : <div><Badge dot style={{ marginRight: "8px" }} /></div>
       );

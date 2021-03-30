@@ -10,18 +10,16 @@
   }
 
   &_events {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    overflow: hidden;
-
-    li {
-      color: white !important;
-      padding: 0 5px;
-      font-weight: 700;
-      margin-bottom: 2px;
-      border-radius: 5px;
+    width: 100%;
+  }
+  &_event {
+    font-weight: bold;
+    &-key {
+      color: #1ed760;
+      border-bottom: 2px solid #1ed760;
+    }
+    &-value {
+      padding-left: 8px;
     }
   }
   &_header {

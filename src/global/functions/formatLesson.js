@@ -3,46 +3,46 @@ function formatLessons(lessons, option) {
   let from, to;
   switch (lessons[0]) {
     case "1": {
-      from = "7h";
+      from = "7:00";
       break;
     }
     case "4": {
-      from = "9h35";
+      from = "9:35";
       break;
     }
     case "7": {
-      from = "12h30";
+      from = "12:30";
       break;
     }
     case "10": {
-      from = "15h05";
+      from = "15:05";
       break;
     }
     case "13": {
-      from = "18h";
+      from = "18:00";
       break;
     }
     default: break;
   }
   switch (lessons[2]) {
     case "3": {
-      to = "9h25";
+      to = "9:25";
       break;
     }
     case "6": {
-      to = "12h";
+      to = "12:00";
       break;
     }
     case "9": {
-      to = "14h55";
+      to = "14:55";
       break;
     }
     case "12": {
-      to = "17h30";
+      to = "17:30";
       break;
     }
     case "15": {
-      to = "21h20";
+      to = "21:20";
       break;
     }
 
