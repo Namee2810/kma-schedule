@@ -1,12 +1,12 @@
 .Schedule {
-  float: right;
-  width: calc(100vw - 56px);
-  height: calc(100vh - 60px);
   transition: all 0.2s;
-  margin-top: 60px;
+
+  grid-column: 2;
+  grid-row: 2;
+  animation: fade 0.25s ease-in-out;
 
   @media (max-width: 576px) {
-    width: 100vw;
+    grid-column: 1/3;
   }
 
   &_events {
