@@ -16,7 +16,9 @@ function MainPage(props) {
         <Route exact path="/">
           <Schedule schedule={schedule} />
         </Route>
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile">
+          <Profile schedule={schedule} student={student} />
+        </Route>
       </Switch>
     </div>
   );

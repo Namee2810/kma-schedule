@@ -3,11 +3,11 @@ function formatLessons(lessons, option) {
   let from, to;
   switch (lessons[0]) {
     case "1": {
-      from = "7:00";
+      from = "07:00";
       break;
     }
     case "4": {
-      from = "9:35";
+      from = "09:35";
       break;
     }
     case "7": {
@@ -26,7 +26,7 @@ function formatLessons(lessons, option) {
   }
   switch (lessons[2]) {
     case "3": {
-      to = "9:25";
+      to = "09:25";
       break;
     }
     case "6": {

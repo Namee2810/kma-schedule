@@ -52,6 +52,11 @@ a {
     }
   }
 }
+.MuiSvgIcon-root,
+.icon-text {
+  vertical-align: top;
+}
+
 @keyframes fade {
   from {
     opacity: 0;
