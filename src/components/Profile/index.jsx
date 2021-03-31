@@ -25,7 +25,7 @@ function Profile(props) {
       let date = item.day.split("/").map(i => +i);
       date = new Date(date[2], date[1] - 1, date[0]).getTime();
       const now = new Date().getTime();
-      if (date - now > 0) passed++;
+      if (now - date > 0) passed++;
     })
     return ((passed / schedule.length) * 100).toFixed(0);
   })()
