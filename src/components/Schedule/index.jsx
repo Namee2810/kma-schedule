@@ -41,7 +41,7 @@ function Schedule(props) {
                     <div>
                       <span className="Schedule_event-key">Phòng:</span>
                       <span className="Schedule_event-value">
-                        {item.room ? item.room : "-"}
+                        {item.room ? (item.room === "san bai San" ? "Sân tập" : item.room) : "-"}
                       </span>
                     </div>
                     <div>
