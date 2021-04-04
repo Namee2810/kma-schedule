@@ -77,6 +77,10 @@ function Schedule(props) {
 
   const onSelect = (value) => {
     setSubjects(getSubjects(value));
+    setTimeout(() => {
+      const schedule_mobile = document.getElementById("Schedule_mobile");
+      if (schedule_mobile) schedule_mobile.scrollIntoView(false);
+    }, 500);
   }
 
   const [subjects, setSubjects] = useState(getSubjects((() => {
@@ -92,7 +96,7 @@ function Schedule(props) {
         dateCellRender={dateCellRender}
         onSelect={onSelect} />
       {
-        !fullscreen && <div className="Schedule_mobile">
+        !fullscreen && <div className="Schedule_mobile" id="Schedule_mobile">
           {subjects.length > 0
             ? <div>
               {subjects.map(item => (
