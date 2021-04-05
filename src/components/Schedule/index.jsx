@@ -61,7 +61,7 @@ function Schedule(props) {
               </Popover>
             ))}
           </div>
-          : <div><Badge dot style={{ marginRight: "8px" }} /></div>
+          : <div><Badge count={listSubjects.length} /></div>
       );
   }
 
