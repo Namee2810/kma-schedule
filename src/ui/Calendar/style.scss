@@ -223,8 +223,11 @@ $color-fade: #eafff1;
           background: none;
         }
 
-        & .calendar-month-date-value {
-          font-weight: 500;
+        &-value {
+          font: {
+            size: 16px;
+            weight: 500;
+          }
           border-top: 2px solid white;
           transition: all 0.25s;
         }
